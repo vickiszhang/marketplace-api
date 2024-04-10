@@ -1,5 +1,10 @@
 # Used Items Marketplace API
 
+## Run instructions
+1. Open Ubuntu (Windows)
+2. run redis-server
+3. run Java app
+
 ## Description
 This project aims to create an API for a marketplace where users can sell their used items, similar to Facebook Marketplace.
 
