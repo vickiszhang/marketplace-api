@@ -5,6 +5,9 @@ import com.example.demo.service.RedisValueCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
+@RestController
+@RequestMapping("/api/transaction")
 public class TransactionController {
     private final RedisValueCache valueCache;
 

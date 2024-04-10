@@ -6,9 +6,9 @@ import java.util.Date;
 public class Transaction implements Serializable {
 
     private String transactionId;
-    private int buyerId;
-    private int sellerId;
-    private int itemId;
+    private String buyerId;
+    private String sellerId;
+    private String itemId;
     private Date date;
 
     public String getTransactionId() {
@@ -19,27 +19,27 @@ public class Transaction implements Serializable {
         this.transactionId = transactionId;
     }
 
-    public int getBuyerId() {
+    public String getBuyerId() {
         return buyerId;
     }
 
-    public void setBuyerId(int buyerId) {
+    public void setBuyerId(String buyerId) {
         this.buyerId = buyerId;
     }
 
-    public int getSellerId() {
+    public String getSellerId() {
         return sellerId;
     }
 
-    public void setSellerId(int sellerId) {
+    public void setSellerId(String sellerId) {
         this.sellerId = sellerId;
     }
 
-    public int getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
