@@ -1,27 +1,29 @@
 package com.example.demo.model;
 
-public class Item {
-    private int itemId;
-    private int userId;
+import java.io.Serializable;
+
+public class Item implements Serializable {
+    private String itemId;
+    private String userId;
     private String name;
     private String description;
     private String condition;
     private Double price;
-    private int categoryId;
+    private String categoryId;
 
-    public int getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
-    public void setItemId(int itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -57,11 +59,11 @@ public class Item {
         this.price = price;
     }
 
-    public int getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 

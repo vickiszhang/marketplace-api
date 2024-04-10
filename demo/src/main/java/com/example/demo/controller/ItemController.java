@@ -1,36 +1,33 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Item;
+import com.example.demo.service.RedisValueCache;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+
+@RestController
+@RequestMapping("/api/item")
 public class ItemController {
-    private static final String REDIS_INDEX_KEY = "ITEM";
+    private final RedisValueCache valueCache;
 
     @Autowired
-    RedisTemplate<String, Object> template;
-
-    @RequestMapping(value="/item", method= RequestMethod.POST)
-    public String addItem(@RequestBody Item item) {
-        System.out.println("creating item");
-        template.opsForHash().put(REDIS_INDEX_KEY, item.getItemId(), item.toString());
-        return "success";
+    public ItemController(final RedisValueCache valueCache) {
+        this.valueCache = valueCache;
+    }
+    @PostMapping
+    public void cacheItem(@RequestBody final Item item) {
+        valueCache.cache(item.getItemId(), item);
     }
 
-    @RequestMapping(value="/item", method= RequestMethod.GET)
-    public ResponseEntity<Object> getItem() {
-        return new ResponseEntity<>(template.opsForHash().entries(REDIS_INDEX_KEY), HttpStatus.OK);
+    @GetMapping("/{id}")
+    public Item getItem(@PathVariable final String id) {
+        return (Item) valueCache.getCachedValue(id);
     }
 
-    @RequestMapping(value="/item/{id}", method= RequestMethod.DELETE)
-    public ResponseEntity<Object> deleteItem(@PathVariable int itemId) {
-        return new ResponseEntity<>(template.opsForHash().delete(REDIS_INDEX_KEY, itemId), HttpStatus.OK);
+    @DeleteMapping("/{id}")
+    public void deleteItem(@PathVariable final String id) {
+        valueCache.deleteCachedValue(id);
     }
 
 }
