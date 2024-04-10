@@ -1,16 +1,18 @@
 package com.example.demo.model;
 
-public class User {
-    private int userId;
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private String userId;
     private String name;
     private int numItemsSold;
     private int numAvailableItems;
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
