@@ -1,20 +1,21 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Transaction {
+public class Transaction implements Serializable {
 
-    private int transactionId;
+    private String transactionId;
     private int buyerId;
     private int sellerId;
     private int itemId;
     private Date date;
 
-    public int getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(int transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
 
