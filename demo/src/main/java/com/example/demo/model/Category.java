@@ -1,15 +1,17 @@
 package com.example.demo.model;
 
-public class Category {
-    private int categoryId;
+import java.io.Serializable;
+
+public class Category implements Serializable {
+    private String categoryId;
     private String category;
 
 
-    public int getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 
