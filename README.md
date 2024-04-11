@@ -65,4 +65,9 @@ This project aims to create an API for a marketplace where users can sell their 
    - `PUT /categories/{categoryId}`
 
 ## Next Steps
+1. Implement some queries
+   1. Get all items sold by user X
+   2. Get all items in category X 
+   3. Get all items where name is matched to a substring
+   4. Get all users who sold at least X items
 
