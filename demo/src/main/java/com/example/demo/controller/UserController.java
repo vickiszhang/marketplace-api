@@ -5,6 +5,7 @@ import com.example.demo.service.RedisValueCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -35,5 +36,21 @@ public class UserController {
     @GetMapping("/all")
     public List<Object> getAll() {
         return valueCache.getAll("u");
+    }
+
+    @GetMapping("/min_items={minItems}")
+    public List<User> getUserMinSold(@PathVariable final int minItems) {
+        List<Object> allUsers = valueCache.getAll("u");
+        List<User> usersMinSold = new ArrayList<>();
+
+        for (Object obj : allUsers) {
+            User user = (User) obj;
+            if (user.getNumItemsSold() >= minItems) {
+                usersMinSold.add(user);
+            }
+        }
+
+        return usersMinSold;
+
     }
 }
