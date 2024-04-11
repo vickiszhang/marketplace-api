@@ -1,0 +1,26 @@
+[
+  {
+    "userId": "u1",
+    "name": "Vicki",
+    "numItemsSold": 1,
+    "numAvailableItems": 1
+  },
+  {
+    "userId": "u2",
+    "name": "Zhang",
+    "numItemsSold": 2,
+    "numAvailableItems": 0
+  },
+  {
+    "userId": "u3",
+    "name": "Sam",
+    "numItemsSold": 3,
+    "numAvailableItems": 2
+  },
+  {
+    "userId": "u4",
+    "name": "Greg",
+    "numsItemsSold": 0,
+    "numAvailableItems": 3
+  }
+]

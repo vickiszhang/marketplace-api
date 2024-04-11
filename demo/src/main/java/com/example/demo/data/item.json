@@ -1,0 +1,41 @@
+[
+  {
+    "itemId": "i1",
+    "userId": "u1",
+    "name": "purple vase",
+    "description": "large vase with decorative pattern",
+    "condition": "good",
+    "price": "10.00",
+    "categoryId": "1"
+  },
+  {
+    "itemId": "i2",
+    "userId": "u3",
+    "name": "chair",
+    "description": "brown chair",
+    "condition": "excellent",
+    "price": "8.00",
+    "categoryId": "1"
+
+  },
+  {
+    "itemId": "i3",
+    "userId": "u3",
+    "name": "sweater",
+    "description": "wool material",
+    "condition": "good",
+    "price": "30.00",
+    "categoryId": "2"
+
+  },
+  {
+    "itemId": "i4",
+    "userId": "u3",
+    "name": "bag",
+    "description": "backpack lightly used",
+    "condition": "excellent",
+    "price": "20.00",
+    "categoryId": "2"
+
+  }
+]
