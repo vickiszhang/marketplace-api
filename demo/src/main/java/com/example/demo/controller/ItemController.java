@@ -5,7 +5,9 @@ import com.example.demo.service.RedisValueCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @RestController
@@ -37,4 +39,18 @@ public class ItemController {
         return valueCache.getAll("i");
     }
 
+    @GetMapping("/seller={userId}")
+    public List<Item> getAllByUser(@PathVariable final String userId) {
+        List<Object> allItems = valueCache.getAll("i");
+        List<Item> itemsSoldByUser = new ArrayList<>();
+
+        for (Object itemObj : allItems) {
+            Item item = (Item) itemObj;
+            if (Objects.equals(item.getUserId(), userId)) {
+                itemsSoldByUser.add(item);
+            }
+        }
+
+        return itemsSoldByUser;
+    }
 }
