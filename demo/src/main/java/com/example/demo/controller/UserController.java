@@ -5,6 +5,8 @@ import com.example.demo.service.RedisValueCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -28,5 +30,10 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable final String id) {
         valueCache.deleteCachedValue(id);
+    }
+
+    @GetMapping("/all")
+    public List<Object> getAll() {
+        return valueCache.getAll("u");
     }
 }
