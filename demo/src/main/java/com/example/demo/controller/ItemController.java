@@ -53,4 +53,21 @@ public class ItemController {
 
         return itemsSoldByUser;
     }
+
+//    @GetMapping("/search?q={searchQuery}")
+    @RequestMapping(value="search", method = RequestMethod.GET)
+    public List<Item> getAllMatchingItems(@RequestParam("q") final String searchQuery) {
+        List<Object> allItems = valueCache.getAll("i");
+        List<Item> matchingItems = new ArrayList<>();
+
+        for (Object itemObj : allItems) {
+            Item item = (Item) itemObj;
+            if (item.getName().contains(searchQuery) || item.getDescription().contains(searchQuery)) {
+                matchingItems.add(item);
+            }
+        }
+
+        return matchingItems;
+    }
+
 }
