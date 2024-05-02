@@ -1,6 +1,8 @@
 package com.example.demo.config;
 
 
+import com.example.demo.repository.DataRepository;
+import com.example.demo.repository.DataRepositoryImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -21,7 +23,17 @@ public class RedisConfiguration {
     public RedisTemplate<String, Object> RedisTemplate() {
         final RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(jedisConnectionFactory());
+//        template.setKeySerializer(new StringRedisSerializer());
+//        template.setValueSerializer(new StringRedisSerializer());
+
+
         return template;
     }
+
+    @Bean
+    public DataRepository dataRepository() {
+        return new DataRepositoryImpl();
+    }
+
 
 }

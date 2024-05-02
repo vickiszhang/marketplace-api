@@ -1,6 +1,10 @@
 package com.example.demo.model;
 
+import org.springframework.data.redis.core.RedisHash;
+
 import java.io.Serializable;
+
+@RedisHash("Item")
 
 public class Item implements Serializable {
     private String itemId;

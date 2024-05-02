@@ -1,8 +1,11 @@
 package com.example.demo.model;
 
+import org.springframework.data.redis.core.RedisHash;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@RedisHash("Transaction")
 public class Transaction implements Serializable {
 
     private String transactionId;
