@@ -22,7 +22,7 @@ public class DataRepositoryTests {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        repository = new DataRepositoryImpl(template);
+        repository = new DataRepositoryImpl();
     }
 
     @Test
